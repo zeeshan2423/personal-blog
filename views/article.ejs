@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= article.title %></title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600|Playfair+Display:700&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="article-header">
+        <nav class="back-nav">
+          <a href="/" class="back-link">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow-icon"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            All Articles
+          </a>
+        </nav>
+      </header>
+
+      <div class="article-meta">
+        <h1 class="article-title"><%= article.title %></h1>
+        <time
+          class="article-date"
+          datetime="<%= new Date(article.date).toISOString() %>"
+        >
+          <%= new Date(article.date).toLocaleDateString('en-US', { month:
+          'long', day: 'numeric', year: 'numeric' }) %>
+        </time>
+      </div>
+
+      <article class="article-content"><%= article.content %></article>
+
+      <div class="article-footer"></div>
+    </div>
+  </body>
+</html>

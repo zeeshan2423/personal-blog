@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Article</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="blog-header">
+        <div class="back-container">
+          <a href="/admin" class="back-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow-icon"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back
+          </a>
+        </div>
+        <h1 class="blog-title">New Article</h1>
+        <p class="blog-subtitle">Create and publish new content</p>
+      </header>
+
+      <main class="content">
+        <form action="/admin/new" method="POST" class="article-form">
+          <div class="form-group">
+            <label for="title">Article Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              class="form-input"
+              placeholder="Enter article title"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="date">Publish Date</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="form-input"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="content">Content</label>
+            <textarea
+              id="content"
+              name="content"
+              class="form-input"
+              rows="8"
+              placeholder="Write your article content here..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="publish-button">Publish Article</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

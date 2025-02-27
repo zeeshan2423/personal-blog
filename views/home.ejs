@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Blog | Home</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="blog-header">
+        <div class="admin-container">
+          <a href="/login" class="admin-button">Admin Sign In</a>
+        </div>
+        <h1 class="blog-title">📝 Personal Blog</h1>
+        <p class="blog-subtitle">Musings on technology, design, and life</p>
+      </header>
+
+      <main class="content">
+        <section class="latest-articles">
+          <h2 class="section-title">Latest Articles</h2>
+
+          <% if (articles.length === 0) { %>
+          <div class="empty-state">
+            <p class="empty-message">
+              No articles published yet. Check back soon!
+            </p>
+          </div>
+          <% } else { %>
+          <div class="articles-grid">
+            <% articles.forEach(article => { %>
+            <article class="article-card">
+              <a href="/article/<%= article.slug %>" class="article-link">
+                <div class="article-header">
+                  <h3 class="article-title"><%= article.title %></h3>
+                  <time
+                    class="article-date"
+                    datetime="<%= new Date(article.date).toISOString() %>"
+                  >
+                    <%= new Date(article.date).toLocaleDateString('en-US', {
+                    month: 'long', day: 'numeric', year: 'numeric' }) %>
+                  </time>
+                </div>
+              </a>
+            </article>
+            <% }); %>
+          </div>
+          <% } %>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

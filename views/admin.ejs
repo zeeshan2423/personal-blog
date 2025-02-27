@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="blog-header">
+        <div class="admin-container">
+          <a href="/logout" class="admin-button">Logout</a>
+        </div>
+        <h1 class="blog-title">Admin Dashboard</h1>
+        <p class="blog-subtitle">Manage your blog content</p>
+      </header>
+
+      <main class="content">
+        <div class="dashboard-actions">
+          <a href="/admin/new" class="new-article-button">Add New Article</a>
+        </div>
+
+        <% if (articles.length === 0) { %>
+        <div class="empty-state">
+          <p class="empty-message">
+            No articles available. Create your first post!
+          </p>
+        </div>
+        <% } else { %>
+        <div class="articles-grid">
+          <% articles.forEach(article => { %>
+          <article class="article-card">
+            <div class="article-header">
+              <h3 class="article-title"><%= article.title %></h3>
+              <time class="article-date">
+                <%= new Date(article.date).toLocaleDateString('en-US', { month:
+                'long', day: 'numeric', year: 'numeric' }) %></time
+              >
+            </div>
+            <div class="article-actions">
+              <a href="/admin/edit/<%= article.filename %>" class="edit-button"
+                >Edit</a
+              >
+              <form
+                action="/admin/delete/<%= article.filename %>"
+                method="POST"
+                class="delete-form"
+              >
+                <button
+                  type="submit"
+                  class="delete-button"
+                  onclick="return confirm('Are you sure you want to delete this article?');"
+                >
+                  Delete
+                </button>
+              </form>
+            </div>
+          </article>
+          <% }); %>
+        </div>
+        <% } %>
+      </main>
+    </div>
+  </body>
+</html>
