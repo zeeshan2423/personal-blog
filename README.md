@@ -4,6 +4,8 @@
 
 This is a **Personal Blog Web Application** built using **Node.js, Express, and EJS**. It allows an admin to **create, edit, and delete blog articles**, while guests can **view published articles**. Articles are stored as **JSON files** for simplicity.
 
+🔗 **Project URL:** [Personal Blog Project on Roadmap.sh](https://roadmap.sh/projects/personal-blog)
+
 ---
 
 ## 📂 **Project Structure**
